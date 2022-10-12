@@ -10,5 +10,9 @@
     <h1>Page d'accueil</h1>
 
     <h2>test</h2>
+
+    <div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
 </body>
 </html>
