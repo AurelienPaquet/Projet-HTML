@@ -39,68 +39,49 @@
 <!--Main-->
 
 <main class="main">
-  <div class="row">
 
 
+  <!-- Section Bienvenu -->
+  <div class="container">
 
-    <div class="col" id="entree">
-      <div id="carousel-plat" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="image/img-menu3.jpg" class="d-block w-100" alt="...">
+    <section class="about" id="about">
+
+    <div class="col-12">
+      <h1 class="heading">BIENVENUE</h1>
+
+    </div>
+    <div class="row">
+          <div class="col-6">
+            <div id="carousel-bienvenu" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item">
+                 <img src="image/img-bienvenu.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item active" data-bs-interval=1000>
+                  <img src="image/img-bienvenu2.jpg" class="d-block w-100" alt="...">
+                </div>
+              </div>  
+            </div>
           </div>
-          <div class="carousel-item">
-            <img src="image/img-menu2.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="image/img-menu3.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="image/img-menu4.jpg" class="d-block w-100" alt="...">
+        <div class="col-5">
+          <div class="content">
+            <h3>Bien le bonjour !</h3>
+            <p>Bienvenue sur notre nouveau site de la cantine de l'esigelec</p>
+            <p>Vous y trouverez chaque semaine un nouveau menu pour la semaine</p>
           </div>
         </div>
-      </div>
     </div>
-    <div class="col" id="plat">
-      <div id="carousel-plat" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="image/img-main1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="image/img-menu2.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="image/img-menu3.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="image/img-menu4.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-      </div>
-    </div>
+   
+
+    </section>
+     </div>
+  
+    <!-- Fin de Section Bienvenu -->
 
 
-    <div class="col" id="dessert">
-    <div id="carousel-dessert" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item">
-            <img src="image/img-menu2.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item active" data-bs-interval=1000>
-            <img src="image/img-menu3.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval=2000>
-            <img src="image/img-menu4.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item "data-bs-interval =1500>
-            <img src="image/img-main1.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
-  </div>
+
 </main>
 
 <!--Fin Main-->
