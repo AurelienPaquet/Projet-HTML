@@ -78,11 +78,7 @@
   
     <!-- Fin de Section Bienvenu -->
 
-
-    
-
-
-</main>
+  </main>
 
 <!--Fin Main-->
 
