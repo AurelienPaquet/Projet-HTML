@@ -1,0 +1,75 @@
+:root{
+    --main-color:#d3ad7f;
+    --black:#13131a;
+    --bg:#010103;
+    --border:.1rem solid rgba(255,255,255,.3);
+}
+
+*{
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+    background-color: #010103;
+}
+
+
+.header{
+    background-color: var(--bg);
+    padding: 25px;
+    align-items: center;
+    border-bottom: .2rem solid var(--main-color);
+}
+
+.header #logo img{
+    margin-top: 13px;
+    margin-left: 15px;
+    height: 32px;
+}
+
+.header #menu{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:1rem;
+
+}
+
+.header #menu a{
+    padding:.7rem 2rem;
+    color:#fff;
+    border:10px;
+    font-size: 1.5rem;
+    border-radius: 20%;
+    text-decoration: none;
+}
+
+.header #menu a:hover{
+    color:var(--main-color);
+}
+
+.header .icons{
+    margin-top: 10px;
+    margin-right: 15px;
+    float: right;
+    font-size: 25px; 
+    color: white;
+}
+
+.header .icons div:hover{
+    color:var(--main-color);
+}
+
+.main #carousel-entree img{
+    height: 300px;
+}
+
+.main #carousel-plat img{
+    height: 300px;
+}
+
+.main #carousel-dessert img{
+    height: 300px;
+}
