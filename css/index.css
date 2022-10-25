@@ -13,9 +13,10 @@
     text-transform: capitalize;
     transition: .2s linear;
     background-color: #010103;
+    font-family:"Abril Fatface", cursive;
 }
 
-
+/*Interface header*/
 .header{
     background-color: var(--bg);
     padding: 25px;
@@ -62,14 +63,54 @@
     color:var(--main-color);
 }
 
-.main #carousel-entree img{
-    height: 300px;
+/*--------------------------------------------*/
+
+/*Interface Bienvenu*/
+
+
+.main h1{
+    text-align: center;
+    padding: 20px;
+    font-size: 6rem;
+    background: linear-gradient(to right,gold,white) ;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.main #carousel-plat img{
-    height: 300px;
+.about .row{
+    background: var(--bg);
+    padding: 2%;
+    border: .2rem solid var(--main-color);
+    border-radius: 2% ;
 }
 
-.main #carousel-dessert img{
-    height: 300px;
+.about .row .carousel-bienvenu{
+    height: 50px;
 }
+
+.about .row img{
+    border: var(--border);
+    border-radius: 5%;
+}
+
+.about .row .content{
+    text-align: center;
+    margin-top: 20%;
+    font-size: 18px;
+    color: white;
+    margin-left: 20%;
+}
+.about .row .content:hover{
+    color: var(--main-color);
+}
+
+
+
+
+
+
+/*--------------------------------------------*/
+
+
+
+/*--------------------------------------------*/

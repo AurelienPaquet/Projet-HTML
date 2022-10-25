@@ -1,0 +1,62 @@
+.footer{
+    background:var(--black);
+    text-align: center;
+}
+
+.footer .share{
+    padding:1rem 0;
+}
+
+
+.footer .share a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    color:#fff;
+    border:.1rem solid deepskyblue;
+    margin:.3rem;
+    border-radius: 50%;
+    text-decoration: none;
+
+}
+
+/* sert à colorier le fond de l'encadrement quand on passe la souris dessus */
+.footer .share a:hover{
+    background-color:deepskyblue;
+}
+
+.footer .links{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:2rem 0;
+    gap:1rem;
+
+}
+
+.footer .links a{
+    padding:.7rem 2rem;
+    color:#fff;
+    border:10px;
+    font-size: 2rem;
+    border:.1rem solid deepskyblue;
+    border-radius: 20%;
+    text-decoration: none;
+
+}
+
+.footer .links a:hover{
+    background:deepskyblue;
+}
+
+
+
+.footer .credit{
+    font-family: "popularity",serif;
+    font-size: 2rem;
+    color:rgb(248, 245, 245);
+    font-weight: lighter;
+    padding:1.5rem;
+}
+
