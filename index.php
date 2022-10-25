@@ -2,6 +2,7 @@
 
   $titre = "Page d'accueil";
   include 'head.php';
+  include 'header.php';
 
 // Affichage des messages à l'aide de Boostrap 
 // (composant alert)
@@ -13,28 +14,7 @@
   }
 ?>
 
-<!-- Header -->
-<header class="header">
-  <div class="container-fluid sticky-top">
-    <div class="row">
-        <div class="col" id="logo">
-          <img src="image/logo_esigelec.png" alt="Logo de l'Esigelec">
-        </div>
-        <div class="col-6 text-center" id="menu">
-          <a href="Page Accueil">Accueil</a>
-          <a href="Calendrier">Calendrier</a>
-          <a href="dq">Menu</a>
-        </div>
-        <div class="col" id="icons">
-          <div class="icons">
-            <div class="fas fa-user"></div>
-          </div>
-        </div>      
-    </div>
-  </div>
-</header>
 
-<!-- Fin Header -->
 
 <!--Main-->
 
@@ -51,7 +31,7 @@
 
     </div>
     <div class="row">
-          <div class="col-6">
+          <div class="col-6" id="carousel">
             <div id="carousel-bienvenu" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item">
@@ -63,7 +43,7 @@
               </div>  
             </div>
           </div>
-        <div class="col-5">
+        <div class="col-5" id="text">
           <div class="content">
             <h3>Bien le bonjour !</h3>
             <p>Bienvenue sur notre nouveau site de la cantine de l'esigelec</p>

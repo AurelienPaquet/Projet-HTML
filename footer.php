@@ -1,6 +1,6 @@
 <!-- footer section starts  -->
 
-<section class="footer">
+<section class="footer" id="footer">
 
     <div class="share">
         <a href="https://fr-fr.facebook.com/" class="fab fa-facebook-f"></a>
