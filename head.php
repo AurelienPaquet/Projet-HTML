@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/calendar.css">
-  <script src='cours.js' async></script>
+  <link rel="stylesheet" href="./style.css">
 
 
 <!-- Bootstrap -->
