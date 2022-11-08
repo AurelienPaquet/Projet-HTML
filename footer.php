@@ -12,11 +12,10 @@
     </div>
 
     <div class="links">
-        <a href="about">Accueil</a>
-        <a href="#">Menu</a>
-        <a href="#">Calendrier</a>
-        <a href="#">Menu du jour</a>
-        <a href="#">contact</a>
+        <a href="index.php">Accueil</a>
+        <a href="PageCalendrier.php">Calendrier</a>
+        <a href="pagemenu.php">Menu du jour</a>
+        <a href="#footer">contact</a>
     </div>
 
     <div class="credit">PROJET ESIGELEC<br> - <br>PAQUET Aurélien & KOPANSKI Patryk</div>

@@ -1,37 +1,30 @@
 <!-- Header -->
 
 <header class="header">
-  <div class="container-fluid sticky-top">
-    <div class="row">
-        <div class="col" id="logo">
-          <img src="image/logo_esigelec.png" alt="Logo de l'Esigelec">
-          
+  <div class="container">
+    <nav>
+      <div>
+      <a href="https://www.w3schools.com/default.asp" target="_blank" rel="noopener noreferrer"><img src="image/logo_esigelec.png" href="https://www.w3schools.com/default.asp" alt="Logo de l'Esigelec" id="logo"></a>
+      </div>
 
+
+      <ul>
+        <li> <a href="index.php" >Accueil</a>       </li>
+        <li> <a href="pagemenu.php">Calendrier</a>       </li>
+        <li> <a href="#footer">Contact</a>       </li>
+      </ul>
+
+      <div id="icons">
+        <div class="dropdown right">
+          <button class="dropbtn fas fa-user" ></button>
+          <div class="dropdown-content" style="right:0">
+            <a href="PageCreation.php">S'inscrite</a>
+            <a href="PageConnexion.php">Se connecter</a>
+          </div>
         </div>
-        <div class="col-6 text-center" id="menu">
-          <a href="#footer">Accueil</a>
-          <a href="Calendrier">Calendrier</a>
-          <a href="dq">Menu</a>
-        </div>
+      </div>
 
-
-      <div class="col" id="icons">
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-              Login/Sign in
-          </a>
-            <ul class="dropdown-menu" id="oui">
-              <li><p>Info du compte :</p></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Se créer un compte</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-              
-          </ul>
-        </li>
-     
-    </div>
+    </nav>
   </div>
 </header>
 

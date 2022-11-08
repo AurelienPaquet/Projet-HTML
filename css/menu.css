@@ -1,0 +1,346 @@
+:root{
+    --main-color:#d3ad7f;
+    --black:#13131a;
+    --bg:#010103;
+    --border:.1rem solid rgba(255,255,255,.3);
+}
+
+.page-menu{
+    width: 100%;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+
+.titre_date #date h1{
+    font-family: Pacifico-regular;
+    text-align: center;
+    color: white;
+    padding: 25px 0;
+    margin-bottom: 2rem;
+    font-size: 60px;
+}
+
+.page-menu h2{
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    margin-bottom: 2rem;
+    font-size: 66px;
+    text-decoration: underline double;
+    text-transform: uppercase;
+}
+
+.page-menu .row{
+    align-content: center;
+
+}
+
+.page-menu #menu-entree_1{
+    display: inline-block;
+    width: 100%;
+    align-content: center;
+
+}
+.page-menu .row-entree:hover{
+background-color: #C8C6C2;
+opacity: 0.7;
+}
+
+.page-menu #menu-entree_2{
+    width: 100%;
+}
+
+.page-menu #menu_entree_1 h3{
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    margin-bottom: 2rem;
+    font-size: 25px;
+}
+
+.page-menu #menu_entree_1 h4{
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    font-size: 25px;
+    line-height: 35px;
+
+}
+.page-menu #menu_entree_1 h4 span{
+    color: var(--main-color);
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+.page-menu #menu_entree_1 h3 span{
+    color: var(--main-color);
+}
+.page-menu #menu_entree_1 img{
+    width: 70%;
+    height:500px;
+    padding: 15px 50px;
+    border-radius: 15%;
+}
+
+.page-menu #menu_entree_1 h5{
+    width: 70%;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    font-weight: 300;
+    line-height: 35px;
+}
+
+.page-menu #menu_entree_1 h5 span{
+    font-size: 30px;
+    color: var(--main-color);
+    text-decoration: underline;
+}
+
+/*-------------------------------------*/
+
+.page-menu #menu_entree_2 h3{
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    margin-bottom: 2rem;
+    font-size: 25px;
+}
+
+.page-menu #menu_entree_2 h4{
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    font-size: 25px;
+    line-height: 35px;
+
+}
+.page-menu #menu_entree_2 h4 span{
+    color: var(--main-color);
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+.page-menu #menu_entree_2 h3 span{
+    color: var(--main-color);
+}
+.page-menu #menu_entree_2 img{
+    width: 70%;
+    height:500px;
+    padding: 15px 50px;
+    border-radius: 15%;
+}
+
+.page-menu #menu_entree_2 p{
+    width: 70%;
+    font-size: 25px;
+    text-align: justify;
+    color: white;
+    text-align: center;
+    font-weight: 300;
+    line-height: 35px;
+    
+}
+
+.page-menu #menu_entree_2 p span{
+    font-size: 30px;
+    color: var(--main-color);
+    text-decoration: underline;
+}
+
+
+/*-----------------------------------------------*/
+.page-menu #menu_plat_1 h3{
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    margin-bottom: 2rem;
+    font-size: 25px;
+}
+
+.page-menu #menu_plat_1 h4{
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    font-size: 25px;
+    line-height: 35px;
+
+}
+.page-menu #menu_plat_1 h4 span{
+    color: var(--main-color);
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+.page-menu #menu_plat_1 h3 span{
+    color: var(--main-color);
+}
+.page-menu #menu_plat_1 img{
+    width: 80%;
+    height:400px;
+    padding: 15px 50px;
+    border-radius: 15%;
+}
+
+.page-menu #menu_plat_1 p{
+    width: 70%;
+    font-size: 25px;
+    text-align: justify;
+    color: white;
+    text-align: center;
+    font-weight: 300;
+    line-height: 35px;
+    
+}
+
+.page-menu #menu_plat_1 p span{
+    font-size: 30px;
+    color: var(--main-color);
+    text-decoration: underline;
+}
+/*-----------------------------------------------*/
+.page-menu #menu_plat_2 h3{
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    margin-bottom: 2rem;
+    font-size: 25px;
+}
+
+.page-menu #menu_plat_2 h4{
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    font-size: 25px;
+    line-height: 35px;
+
+}
+.page-menu #menu_plat_2 h4 span{
+    color: var(--main-color);
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+.page-menu #menu_plat_2 h3 span{
+    color: var(--main-color);
+}
+.page-menu #menu_plat_2 img{
+    width: 80%;
+    height:400px;
+    padding: 15px 50px;
+    border-radius: 15%;
+}
+
+.page-menu #menu_plat_2 p{
+    width: 70%;
+    font-size: 25px;
+    text-align: justify;
+    color: white;
+    text-align: center;
+    font-weight: 300;
+    line-height: 35px;
+    
+}
+
+.page-menu #menu_plat_2 p span{
+    font-size: 30px;
+    color: var(--main-color);
+    text-decoration: underline;
+}
+/*-----------------------------------------------*/
+.page-menu #menu_plat_3 h3{
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    margin-bottom: 2rem;
+    font-size: 25px;
+}
+
+.page-menu #menu_plat_3 h4{
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    font-size: 25px;
+    line-height: 35px;
+
+}
+.page-menu #menu_plat_3 h4 span{
+    color: var(--main-color);
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+.page-menu #menu_plat_3 h3 span{
+    color: var(--main-color);
+}
+.page-menu #menu_plat_3 img{
+    width: 80%;
+    height:400px;
+    padding: 15px 50px;
+    border-radius: 15%;
+}
+
+
+
+.page-menu #menu_plat_3 p{
+    width: 70%;
+    display: block;
+    align-content: center;
+    font-size: 25px;
+    text-align: justify;
+    color: white;
+    text-align: center;
+    font-weight: 300;
+    line-height: 35px;
+    padding: 0 25px;
+}
+
+.page-menu #menu_plat_3 p span{
+    font-size: 30px;
+    color: var(--main-color);
+    text-decoration: underline;
+}
+/*-----------------------------------------------*/
+
+.page-menu #menu_dessert h3{
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+    margin-bottom: 2rem;
+    font-size: 25px;
+}
+
+.page-menu #menu_dessert h4{
+    text-align: center;
+    
+    color: white;
+    padding: 15px 60%;
+    font-size: 25px;
+    line-height: 35px;
+
+}
+.page-menu #menu_dessert h4 span{
+    color: var(--main-color);
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+.page-menu #menu_dessert h3 span{
+    color: var(--main-color);
+}
+.page-menu #menu_dessert img{
+    width: 60%;
+    height:800px;
+    padding: 15px 50px;
+    border-radius: 15%;
+}
+
+
+
+/*-----------------------------------------------*/
+
+
+
+

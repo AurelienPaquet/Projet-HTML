@@ -22,16 +22,40 @@
 
 
   <!-- Section Bienvenu -->
-  <div class="container">
+  <div>
+
+    <section class="home" id="home">
+    <div class="content">
+      <h1>BIENVENUE</h1>
+    </div>
+
+    </section>
+
+    <section class="map">
+              <div id="map" style="width: 600px;height: 600px;"></div>
+              <script>
+                function initMap(){
+                    var location = {lat: 49.38339, lng: 1.07683};
+                    var map = new google.maps.Map(document.getElementById("map"), {
+                        zoom: 17,
+                        center: location
+                    });
+                    var marker = new google.maps.Marker({
+                        position: location,
+                        map: map
+                    });
+                }
+            </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFMJ4HM0r5BhswlDQw5i5sJOKQORZ26DE&callback=initMap"></script>
+
+    </section>
+
 
     <section class="about" id="about">
 
-    <div class="col-12">
-      <h1 class="heading">BIENVENUE</h1>
 
-    </div>
     <div class="row">
-          <div class="col-6" id="carousel">
+          <div id="carousel">
             <div id="carousel-bienvenu" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item">
@@ -43,11 +67,10 @@
               </div>  
             </div>
           </div>
-        <div class="col-5" id="text">
+        <div id="text">
           <div class="content">
-            <h3>Bien le bonjour !</h3>
-            <p>Bienvenue sur notre nouveau site de la cantine de l'esigelec</p>
-            <p>Vous y trouverez chaque semaine un nouveau menu pour la semaine</p>
+            <h3>à propos de <span id="titre">NOUS</span></h3>
+            <p>Heureux de vous accueillir sur notre nouveau site de la cafeteria de l'ESIGELEC. On vous propose donc d'accéder aux menus de la semaine et du jours même ainsi que votre commande précédement passé. Nous espérons que ce site vous plaise.<br><span id="signature">L'Administration.</span></p>
           </div>
         </div>
     </div>

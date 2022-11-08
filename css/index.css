@@ -12,120 +12,227 @@
     text-decoration: none;
     text-transform: none;
     transition: .2s linear;
-    background-color: #010103;
     font-family:"Abril Fatface", cursive;
     scroll-behavior: smooth;
 }
 
-/*Interface header*/
-.header{
-    background-color: var(--bg);
-    padding: 25px;
-    align-items: center;
-    border-bottom: .2rem solid var(--main-color);
-}
-
-.header #logo img{
-    margin-top: 13px;
-    margin-left: 15px;
-    height: 32px;
-}
-
-.header #menu{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap:1rem;
-
-}
-
-.header #menu a{
-    padding:.7rem 2rem;
-    color:#fff;
-    border:10px;
-    font-size: 1.5rem;
-    border-radius: 20%;
-    text-decoration: none;
-}
-
-.header #menu a:hover{
-    color:var(--main-color);
-}
-
-.header .btn-group{
-    background-color: black;
-}
-
-.header .icons{
-    font-size: 25px; 
-    display: flex;
-    align-items: center;
-}
-
-
-
-
-/*
-.header .icons{
-    margin-top: 10px;
-    margin-right: 15px;
-    font-size: 15px; 
-    color: white;
-}
-*/
-.header .icons div:hover{
-    color:var(--main-color);
-}
-
-/*--------------------------------------------*/
 
 /*Interface Bienvenu*/
 
+.main{
+    width: 100%;
+    background-color: #010103;
+    padding: 0;
 
-.main h1{
+}
+.home{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background:url(../image/home-test.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.home h1{
     text-align: center;
     padding: 20px;
     font-size: 6rem;
-    background: linear-gradient(to right,gold,white);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: white;
+    z-index: 100;
+}
+
+.home a{
+    gap: 15px;
+    background-color: var(--main-color);
+    color: white
 }
 
 .about .row{
-    padding: 2%;
-    border: .2rem solid var(--main-color);
-    border-radius: 2% ;
+    width: 100%;
+    padding: 100px 300px;
 }
 
-
-
-.about .row .carousel-bienvenu{
-    height: 50px;
-}
-
-.about .row img{
-    border: var(--border);
+#map{
+    display: block;
+    margin: 25px auto 0;
+    text-align: center;
     border-radius: 5%;
+    border: var(--border);
+}
+
+
+.about .row #carousel-bienvenu{
+    height: 70px;
+    float:left;
+    width:50%;
 }
 
 .about .row .content{
+text-align: center;
+width:50%;
+float:right;
+padding: 0 25px;
+}
+
+.about .row .content h3{
+    font-family: Fatface;
+    font-size: 50px;
     text-align: center;
-    margin-top: 20%;
-    font-size: 18px;
+    line-height: 44px;
+    font-weight: 900;
     color: white;
-    margin-left: 20%;
+    text-transform: uppercase;
+    padding: 25px;
 }
-.about .row .content:hover{
+
+.about .row .content h3 #titre{
     color: var(--main-color);
+    text-transform: uppercase;
+}
+
+.about .row .content p{
+    font-family: Fatface;
+    font-size: 20px;
+    padding: 25px 0px;
+    color: white;
+    text-align:justify;
+    line-height: 30px;
+}
+
+.about .row .content p #signature{
+    padding: 25px 0;
+    float: right;
+
 }
 
 
-
-
-
-
 /*--------------------------------------------*/
 
+/*---------------Inscription------------------*/
+
+#signin{
+    background-color: var(--bg);
+    height: 550px;
+    float: center;
+}
+
+#inscription h1{
+text-align: center;
+color: white;
+padding: 50px 0;
+margin-bottom: 2rem;
+font-size: 50px;
+}
 
 
+#formulaire label{
+    color: white;
+    font-size: 25px;
+}
+
+#formulaire button{
+    margin: 25px;
+    color: white;
+    border-color: white;
+}
+
+#formulaire button:hover{
+    background-color: var(--main-color);
+}
 /*--------------------------------------------*/
+
+/*---------------Inscription------------------*/
+
+#signin{
+    background-color: var(--bg);
+    height: 550px;
+    float: center;
+}
+
+#inscription h1{
+text-align: center;
+color: white;
+padding: 50px 0;
+margin-bottom: 2rem;
+font-size: 50px;
+}
+
+
+#formulaire label{
+    color: white;
+    font-size: 25px;
+}
+
+#formulaire button{
+    margin: 25px;
+    color: white;
+    border-color: white;
+}
+
+#formulaire button:hover{
+    background-color: var(--main-color);
+}
+
+@media (max-width:1000px){
+
+    html{
+        font-size: 55%;
+    }
+    .header nav{
+        height: 300px;
+    }
+
+    .header nav #logo{
+        display: none;
+    }
+
+    .header nav ul li a{
+        font-size: 25px;
+        padding:20px 0;
+        text-transform: capitalize;
+    }
+
+    .header nav #icons{
+        width: 100%;
+        height: 50px;
+        float: none;
+        padding: 25px 0;
+        right:50%;
+        left: 50%
+      }
+
+      .home{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background:url(../image/home-test.png) no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    section{
+        width: 100%;
+    }
+    
+    .about .row{
+        width: 100%;
+        --bs-columns: 12;
+    }
+
+    .about .row #carousel{
+    display: none;
+    }
+
+    .about .row .content{
+        width: 100%;
+    }
+
+    .about .content #text h3{
+        font-size: 25px;
+    }
+
+}
