@@ -1,26 +1,25 @@
-//check the console for date click event
-//Fixed day highlight
-//Added previous month and next month view
+//Code emprunté sur https://alvarotrigo.com/blog/css-calendar/
+
 
 function CalendarControl() {
     const calendar = new Date();
     const calendarControl = {
       localDate: new Date(),
       prevMonthLastDate: null,
-      calWeekDays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      calWeekDays: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
       calMonthName: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec"
+        "Janvier",
+        "Février",
+        "Mars",
+        "Avril",
+        "Mai",
+        "Juin",
+        "Juillet",
+        "Auôt",
+        "Septembre",
+        "Octobre",
+        "Novembre",
+        "Décembre"
       ],
       daysInMonth: function (month, year) {
         return new Date(year, month, 0).getDate();
