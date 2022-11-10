@@ -6,8 +6,8 @@
         <a href="https://fr-fr.facebook.com/" class="fab fa-facebook-f"></a>
         <a href="https://twitter.com/home?lang=fr" class="fab fa-twitter"></a>
         <a href="https://www.instagram.com/?hl=fr" class="fab fa-instagram"></a>
-        <a href="https://fr.linkedin.com/" class="fab fa-linkedin"></a>
-        <a href="https://www.reddit.com/" class="fab fa-reddit"></a>
+        <a href="index-responsable.php" class="fab fa-linkedin"></a>
+        <a href="index-admin.php" class="fab fa-reddit"></a>
 
     </div>
 

@@ -235,4 +235,7 @@ font-size: 50px;
         font-size: 25px;
     }
 
+    #formulaire button{
+        font-size: 16px;
+    }
 }

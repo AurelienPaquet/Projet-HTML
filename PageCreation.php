@@ -12,31 +12,31 @@
     </div>
     
     <div class="container" id="formulaire">
-      <form action="BDD/creation.php" method="post" > 
-          <div>
+      <form action="BDD/signup.inc.php" method="post" > 
+          <div class="col-md-12">
             <label for="nom" class="form-label" style="padding: 10px 0;">Nom</label>
-            <input type="text" class="form-control" id="nom" required name="le_nom">
+            <input type="text" class="form-control" placehoder="Le nom..." id="nom" required name="le_nom">
           </div>
-          <div>
+          <div class="col-md-12">
             <label for="prenom" class="form-label" style="padding: 10px 0;">Prénom</label>
-            <input type="text" class="form-control" id="prenom" required name="le_prenom">
+            <input type="text" class="form-control" placehoder="Le prénom..." id="prenom" required name="le_prenom">
           </div>
-          <div>
+          <div class="col-md-12">
             <label for="mail" class="form-label" style="padding: 10px 0;">Email</label>
-            <input type="email" class="form-control" id="mail" required name="l_email">
+            <input type="email" class="form-control"  id="mail" required name="l_email" placehoder="L'e-mail...">
           </div>
-          <div>
+          <div class="col-md-12">
             <label for="pass" class="form-label" style="padding: 10px 0;">Password</label>
-            <input type="password" class="form-control" id="pass" required name="le_pass">
+            <input type="password" class="form-control" placehoder="Le mot de passe..." id="pass" required name="le_pass">
           </div>
         <div>
-            <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-primary" type="submit">S'inscrire</button></div>   
+            <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-primary" type="submit" name="submit">S'inscrire</button></div>   
         </div>
       </form>
     </div>
   </div>
 </div>
-    
+
 
 
 <?php
