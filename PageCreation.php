@@ -12,7 +12,7 @@
     </div>
     
     <div class="container" id="formulaire">
-      <form action="BDD/signup.inc.php" method="post" > 
+      <form action="includes/signup.inc.php" method="post" > 
           <div class="col-md-12">
             <label for="nom" class="form-label" style="padding: 10px 0;">Nom</label>
             <input type="text" class="form-control" placehoder="Le nom..." id="nom" required name="le_nom">

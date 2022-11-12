@@ -7,7 +7,7 @@
 <section class="page-menu">
     <div class="container-fluid titre_date">
         <div class="col-12" id="date">
-            <h1><?php echo $_GET["var"];?></h1>
+            <h1><?php echo $_GET["jour"];?> <?php echo $_GET["mois"];?> <?php echo $_GET["year"];?></h1>
         </div>
     </div>
     <div class="container-fluid menu-entree">
