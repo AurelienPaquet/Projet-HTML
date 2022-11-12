@@ -33,10 +33,25 @@
             <div class="d-grid gap-2 d-md-block"><button class="btn btn-outline-primary" type="submit" name="submit">S'inscrire</button></div>   
         </div>
       </form>
+      <?php
+if(isset($_GET["error"])){
+  if($_GET["error"] == "emptyinput"){
+    echo "<p>Rentrez tous les champs pour vous connecter !</p>";
+  }
+ else if($_GET["error"] == "invalidemail"){
+    echo "<p >Entrez un vrai mail</p>";
+  }  else if($_GET["error"] == "stmtfailed"){
+    echo "<p>error BDD... recommencez</p>";
+  }  else if($_GET["error"] == "Emailtaken"){
+    echo "<p>Email déja prit</p>";
+  }  else if($_GET["error"] == "none"){
+    echo "<p>Votre inscription est validée</p>";
+  }
+}
+?>
     </div>
   </div>
 </div>
-
 
 
 <?php

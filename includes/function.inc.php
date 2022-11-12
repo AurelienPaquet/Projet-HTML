@@ -48,6 +48,7 @@ function emptyInputSignup($name, $username, $email, $passwd){
 
   function createUser($conn, $name, $username, $email, $passwd, $role){
     $sql = "INSERT INTO user (nom, prenom, email, password, role) VALUES (?, ?, ?, ?, ?);";
+    $passwd = password_hash($password, PASSWORD_DEFAULT);
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
         header("location: ../PageCreation.php?error=stmtfailed");
@@ -61,4 +62,44 @@ function emptyInputSignup($name, $username, $email, $passwd){
     header("location: ../PageCreation.php?error=none");
     exit();
     }
+
+    function emptyInputLogin($login, $pwd){
+      $result;
+      if(empty($login) || empty($pwd)){
+        $result = true;
+      } else {
+        $result = false;
+      }
+      return $result;
+    }
+
+    function loginUser($conn, $login, $pwd){
+      $emailExist = emailExist($conn, $login);
+
+      if($emailExist === false){
+        header("location: ../PageCreation.php?error=mauvaislogin");
+        exit();
+      }
+      //methode hash
+      $pwdHashed = $emailExist["password"];
+      $checkPwd = password_verily($pwd, $pwdHashed);
+
+
+
+      //$pwdBDD = $emailExist["password"];
+     // $checkPwd = password_verify($pwd, $pwdBDD);
+
+      if($checkPwd === false){
+        header("location: ../PageConnexion.php?error=wrongPassWord");
+        exit();
+      } else if($checkPwd === true) {
+        session_start();
+        $_SESSION["userprenom"] = $emailExist["prenom"];
+        $_SESSION["usernom"] = $emailExist["nom"];
+        header("location: ../index.php");
+        exit();
+
+      }
+
+      }
 ?>
