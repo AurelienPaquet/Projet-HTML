@@ -14,7 +14,6 @@
     <div class="links">
         <a href="index.php">Accueil</a>
         <a href="PageCalendrier.php">Calendrier</a>
-        <a href="pagemenu.php">Menu du jour</a>
         <a href="#footer">contact</a>
     </div>
 

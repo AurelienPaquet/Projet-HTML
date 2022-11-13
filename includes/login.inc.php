@@ -13,7 +13,8 @@ if(emptyInputLogin($login, $pwd) !== false){
     exit();
 }
 
-loginUser($conn,$login, $pwd);
+loginUser($conn, $login, $pwd);
+
 } else {
     header("location: ../PageConnexion.php");
     exit();

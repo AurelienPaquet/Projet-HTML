@@ -1,6 +1,6 @@
 <?php
 
-  $titre = "Connexion";
+  $titre = "Calendrier";
   include 'head.php';
   include 'header.php';
 

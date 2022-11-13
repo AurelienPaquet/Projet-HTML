@@ -22,6 +22,21 @@
 
 
   <!-- Section Bienvenu -->
+        <?php
+              if(isset($_SESSION["usernom"]) && $_SESSION["userrole"] === 2){
+
+                echo "<h1 style='text-align:center;color:white;font-size:60px;'>Bienvenue M. Responsable</h1>";
+
+              } else if (isset($_SESSION["usernom"]) && $_SESSION["userrole"] === 3){
+                echo "<h1 style='text-align:center;color:white;font-size:60px;'>Bienvenue M. Admin</h1>";
+
+
+              } else {
+                
+              }
+        ?>
+
+
   <div>
 
     <section class="home" id="home">

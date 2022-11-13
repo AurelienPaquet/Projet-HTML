@@ -48,7 +48,7 @@ function emptyInputSignup($name, $username, $email, $passwd){
 
   function createUser($conn, $name, $username, $email, $passwd, $role){
     $sql = "INSERT INTO user (nom, prenom, email, password, role) VALUES (?, ?, ?, ?, ?);";
-    $passwd = password_hash($password, PASSWORD_DEFAULT);
+    $hashedPwd = password_hash($passwd, PASSWORD_DEFAULT);
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
         header("location: ../PageCreation.php?error=stmtfailed");
@@ -56,7 +56,7 @@ function emptyInputSignup($name, $username, $email, $passwd){
     }
 
 
-    mysqli_stmt_bind_param($stmt, "ssssi", $name, $username, $email, $passwd, $role);
+    mysqli_stmt_bind_param($stmt, "ssssi", $name, $username, $email, $hashedPwd, $role);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../PageCreation.php?error=none");
@@ -77,27 +77,39 @@ function emptyInputSignup($name, $username, $email, $passwd){
       $emailExist = emailExist($conn, $login);
 
       if($emailExist === false){
-        header("location: ../PageCreation.php?error=mauvaislogin");
+        header("location: ../PageConnexion.php?error=mauvaislogin");
         exit();
       }
-      //methode hash
+
+      
       $pwdHashed = $emailExist["password"];
-      $checkPwd = password_verily($pwd, $pwdHashed);
+      $checkPwd = password_verify($pwd, $pwdHashed);
+      if($pwd === $pwdHashed){
+        $checkAdmin = true;
+      }
 
-
-
-      //$pwdBDD = $emailExist["password"];
-     // $checkPwd = password_verify($pwd, $pwdBDD);
-
-      if($checkPwd === false){
+      if($checkPwd === false && $checkAdmin === false){
         header("location: ../PageConnexion.php?error=wrongPassWord");
         exit();
-      } else if($checkPwd === true) {
-        session_start();
-        $_SESSION["userprenom"] = $emailExist["prenom"];
-        $_SESSION["usernom"] = $emailExist["nom"];
-        header("location: ../index.php");
-        exit();
+      } else if($checkPwd === true || $checkAdmin === true) {
+        if($checkAdmin === true){
+          session_start();
+          $_SESSION["userprenom"] = $emailExist["prenom"];
+          $_SESSION["usernom"] = $emailExist["nom"];
+          $_SESSION["userrole"] = $emailExist["role"];
+          header("location: ../index.php?SessionAdmin");
+          exit();
+        } else {
+          session_start();
+          $_SESSION["userprenom"] = $emailExist["prenom"];
+          $_SESSION["usernom"] = $emailExist["nom"];
+          $_SESSION["userrole"] = $emailExist["role"];
+          $_SESSION["useremail"] = $emailExist["email"];
+
+          header("location: ../index.php");
+          exit();
+  
+        }
 
       }
 

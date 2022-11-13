@@ -8,7 +8,7 @@
 <div class="signin" id="signin" style="height: 900px;">
   <div class="container" id="inscription">
     <div class="col-md-12">
-      <h1 style="padding: 40px 0;">Créer un compte</h1>
+      <h1 style="padding: 40px 0;">Connexion</h1>
     </div>
     
     <div class="container" id="formulaire">
