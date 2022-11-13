@@ -5,6 +5,13 @@
   include 'header.php';
 
 ?>
+<section style="background-color: black;">
+<div class="container" style="background-color: black;">
+    <h1 style="color: white;font-size: 50px; text-align:center;padding:10px">Version Responsable/Admin</h1>
+</div>
+</section>
+
+
 <section class=calendrier>
 <div class="calendar"></div>
 <script>//check the console for date click event
@@ -128,9 +135,7 @@ function CalendarControl() {
           calendar.getFullYear()
         );
 
-//Ajout pagemenu.php?jour=${count}&mois=${
- // calendarControl.calMonthName[calendar.getMonth()]
- //         }&year=${calendar.getFullYear()}
+//Ajout 
         // dates of current month
         for (let i = 1; i < calendarDays; i++) {
           
@@ -143,7 +148,7 @@ function CalendarControl() {
           } else {
             document.querySelector(
               ".calendar .calendar-body"
-            ).innerHTML += `<div class="number-item" data-num=${count}><a class="dateNumber" href="includes/menu.inc.php" >${count++}</a></div>`;
+            ).innerHTML += `<div class="number-item" data-num=${count}><a class="dateNumber" href=pagemenu.php?jour=${count}&mois=${calendarControl.calMonthName[calendar.getMonth()]}&year=${calendar.getFullYear()} >${count++}</a></div>`;
           }
         }
         //remaining dates after month dates
