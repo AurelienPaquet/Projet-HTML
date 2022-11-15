@@ -18,18 +18,18 @@ function CalendarControl() {
       prevMonthLastDate: null,
       calWeekDays: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
       calMonthName: [
-        "Janvier",
-        "Février",
-        "Mars",
-        "Avril",
-        "Mai",
-        "Juin",
-        "Juillet",
-        "Auot",
-        "Septembre",
-        "Octobre",
-        "Novembre",
-        "Decembre"
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
       ],
       daysInMonth: function (month, year) {
         return new Date(year, month, 0).getDate();

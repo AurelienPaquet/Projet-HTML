@@ -2,17 +2,10 @@
   $titre = "Page des Menus";
   include 'head.php';
   include 'header.php';
-  $url = $_SESSION['menuImage'];  
 
   ?>
 
-<?php
-    echo $url;
-if(isset($_SESSION["usernom"])){
-    echo "<img src=$url class='img-fluid rounded' alt='image temporaire'>";
-}
 
-?>
 
 <section class="page-menu">
     <div class="container-fluid titre_date">

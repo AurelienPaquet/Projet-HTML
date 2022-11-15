@@ -25,18 +25,18 @@ function CalendarControl() {
       prevMonthLastDate: null,
       calWeekDays: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
       calMonthName: [
-        "Janvier",
-        "Février",
-        "Mars",
-        "Avril",
-        "Mai",
-        "Juin",
-        "Juillet",
-        "Auot",
-        "Septembre",
-        "Octobre",
-        "Novembre",
-        "Decembre"
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
       ],
       daysInMonth: function (month, year) {
         return new Date(year, month, 0).getDate();
@@ -148,7 +148,7 @@ function CalendarControl() {
           } else {
             document.querySelector(
               ".calendar .calendar-body"
-            ).innerHTML += `<div class="number-item" data-num=${count}><a class="dateNumber" href=pagemenu.php?jour=${count}&mois=${calendarControl.calMonthName[calendar.getMonth()]}&year=${calendar.getFullYear()} >${count++}</a></div>`;
+            ).innerHTML += `<div class="number-item" data-num=${count}><a class="dateNumber" href=ajouter_un_plat.php?jour=${count}&mois=${calendarControl.calMonthName[calendar.getMonth()]}&year=${calendar.getFullYear()} >${count++}</a></div>`;
           }
         }
         //remaining dates after month dates

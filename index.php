@@ -30,14 +30,6 @@
               } else if (isset($_SESSION["usernom"]) && $_SESSION["userrole"] === 3){
                 echo "<h1 style='text-align:center;color:white;font-size:60px;'>Bienvenue M. Admin</h1>";
 
-               echo "<ul>
-                  <li><a href='PageCreation_responsable.php'>Ajouter un responsable</a></li>
-                  <li><a href='ajout_menu.php'>Ajouter menu</a></li>
-                  <li><a href='PageCalendrier_respo.php'>Ajouter menu du jour</a></li>
-                  <li><a href='includes/choix_menu.inc.php'>test</a></li>
-
-
-                </ul>";
               }        
 
         ?>
