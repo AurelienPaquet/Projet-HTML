@@ -128,9 +128,7 @@ function CalendarControl() {
           calendar.getFullYear()
         );
 
-//Ajout pagemenu.php?jour=${count}&mois=${
- // calendarControl.calMonthName[calendar.getMonth()]
- //         }&year=${calendar.getFullYear()}
+
         // dates of current month
         for (let i = 1; i < calendarDays; i++) {
           
@@ -143,7 +141,9 @@ function CalendarControl() {
           } else {
             document.querySelector(
               ".calendar .calendar-body"
-            ).innerHTML += `<div class="number-item" data-num=${count}><a class="dateNumber" href="includes/menu.inc.php" >${count++}</a></div>`;
+            ).innerHTML += `<div class="number-item" data-num=${count}><a class="dateNumber" href=pagemenu.php?jour=${count}&mois=${
+ calendarControl.calMonthName[calendar.getMonth()]
+         }&year=${calendar.getFullYear()} >${count++}</a></div>`;
           }
         }
         //remaining dates after month dates

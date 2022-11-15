@@ -248,4 +248,28 @@ function emptyInputSignup_responsable($name_respo, $username_respo, $email_respo
           header("location: ../ajout_menu.php?error=none");
           exit();
         }
+
+
+        function choix_menu($conn, $test){
+          $sql = "SELECT id_menu, nom, type FROM menu;";
+          $stmt = mysqli_stmt_init($conn);
+          if(!mysqli_stmt_prepare($stmt, $sql)){
+              header("location: ../index.php?error=stmtfailed");
+              exit();
+          }
+          $result = $conn->query($sql);
+          $data = array();
+            if (mysqli_num_rows($result) > 0){
+              while($rowData = mysqli_fetch_assoc($result)){
+                $data[] = $rowData;
+            }
+        }
+
+        //print_r($data);
+
+        foreach($data as $nom){
+           echo $nom[$test]." ";
+        }
+
+      }
 ?>
