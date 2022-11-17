@@ -1,7 +1,11 @@
 <?php
+
+ 
   $titre = "Page des Menus";
   include 'head.php';
   include 'header.php';
+  
+
 
   ?>
 
@@ -10,7 +14,7 @@
 <section class="page-menu">
     <div class="container-fluid titre_date">
         <div class="col-12" id="date">
-            <h1><?php echo $_GET["jour"];?> <?php echo $_GET["mois"];?> <?php echo $_GET["year"];?></h1>
+            <h1>Menu Du Jour</h1>
         </div>
     </div>
     <div class="container-fluid menu-entree">
@@ -22,11 +26,11 @@
         <div class="col-sm-12 row-entree  text-center">
             <div id="menu_entree_1" >
                 <h3 class="nom">Menu n°<span>1</span></h3>
-                <h4><span>Nom<br></span></h4>
+                <h4><span>Nom<br></span><?php echo $_GET['nom_entree']?></h4>
                 <div class="container-fluid">
-                <img src="" class="img-fluid rounded" alt="image temporaire">
+                <img src=<?php echo $_GET['img_entree']?> class="img-fluid rounded" alt="image temporaire">
                 </div>
-                <h4><span>Description<br></span></h4>
+                <h4><span>Description<br></span><?php echo $_GET['desc_entree']?></h4>
             </div>
         </div>
         </div>
@@ -39,9 +43,9 @@
         <div class="row">
             <div class="col-sm-12 row-entree  text-center " id="menu_plat_1">
                 <h3 class="nom">Menu n°<span>1</span></h3>
-                <h4><span>Nom<br></span> plat-test</h4>
-                <img src="image/plat-test.jpg" class="img-fluid rounded" alt="image temporaire">
-                <h4><span>Description</span><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ipsum turpis, cursus finibus libero eu, semper congue dolor. Cras ut mattis eros. Praesent vitae risus odio.</h4>
+                <h4><span>Nom<br></span><?php echo $_GET['nom_plat']?></h4>
+                <img src=<?php echo $_GET['img_plat']?> class="img-fluid rounded" alt="image temporaire">
+                <h4><span>Description</span><br><?php echo $_GET['desc_plat']?></h4>
             </div>
         </div>
     </div>
@@ -52,9 +56,9 @@
         <div class="row row-entree">
         <div class="col-sm-12 row-entree  text-center " id="menu_dessert_1">
                 <h3 class="nom">Menu n°<span>1</span></h3>
-                <h4><span>Nom<br></span> dessert-test</h4>
-                <img src="image/dessert-test.jpg" class="img-fluid rounded" alt="image temporaire">
-                <h4><span>Description</span><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ipsum turpis, cursus finibus libero eu, semper congue dolor. Cras ut mattis eros. Praesent vitae risus odio.</h4>
+                <h4><span>Nom<br></span><?php echo $_GET['nom_dessert']?></h4>
+                <img src=<?php echo $_GET['img_dessert']?> class="img-fluid rounded" alt="image temporaire">
+                <h4><span>Description</span><br><?php echo $_GET['desc_dessert']?></h4>
             </div>
     </div>
     </div>

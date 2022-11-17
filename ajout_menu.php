@@ -22,9 +22,9 @@ if($_SESSION["userrole"] === 2 || $_SESSION["userrole"] === 3 ){
                 <div class='col-md-12'>
                     <label for='type_plat' style='padding: 10px 0;'>Type du plat :</label>
                     <select id='type_plat' name='typle_plat' size='3' multiple>
-                        <option value=1>Entrée</option>
-                        <option value=2>Plat</option>
-                        <option value=3>Dessert</option>
+                        <option value='entree'>Entrée</option>
+                        <option value='plat'>Plat</option>
+                        <option value='dessert'>Dessert</option>
                     </select>
                 </div>
                 <div class='col-md-12'>

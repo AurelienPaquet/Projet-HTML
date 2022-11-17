@@ -1,0 +1,9 @@
+  $host="localhost";
+  $namebdd="grp_8_4";
+  $passbdd="NlQ2Bm19NoSG";
+  $dbname="bdd_8_4";
+
+  $host="localhost";
+  $namebdd="root";
+  $passbdd="root";
+  $dbname="serveur-cantine";

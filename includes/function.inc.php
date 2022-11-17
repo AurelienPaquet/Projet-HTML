@@ -20,6 +20,15 @@ function emptyInputSignup_responsable($name_respo, $username_respo, $email_respo
   return $result;
 }
 
+function emptyInputMenu($date, $entree, $plat, $dessert){
+  $result;
+  if( empty($entree) || empty($plat) || empty($dessert)){
+    $result = true;
+  } else {
+    $result = false;
+  }
+  return $result;
+}
 
 
   function invalidemail($email){
@@ -86,6 +95,29 @@ function emptyInputSignup_responsable($name_respo, $username_respo, $email_respo
     mysqli_stmt_close($stmt);
   } 
 
+  function dateExist($conn, $date){
+    $sql = "SELECT * FROM date_menu WHERE date = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../PageCreation.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $date);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if($row = mysqli_fetch_assoc($resultData)){
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+  } 
+
   function createUser($conn, $name, $username, $email, $passwd, $role){
     $sql = "INSERT INTO user (nom, prenom, email, password, role) VALUES (?, ?, ?, ?, ?);";
     $hashedPwd = password_hash($passwd, PASSWORD_DEFAULT);
@@ -102,6 +134,22 @@ function emptyInputSignup_responsable($name_respo, $username_respo, $email_respo
     header("location: ../PageCreation.php?error=none");
     exit();
     }
+
+    function AjoutMenuDate($conn, $date, $entree, $plat, $dessert){
+      $sql = "INSERT INTO date_menu (date, menu_entree, menu_plat, menu_dessert) VALUES (?, ?, ?, ?);";
+      $stmt = mysqli_stmt_init($conn);
+      if(!mysqli_stmt_prepare($stmt, $sql)){
+          header("location: ../ajouter_un_plat.php?error=stmtfailed");
+          exit();
+      }
+  
+      mysqli_stmt_bind_param($stmt, "ssss", $date, $entree, $plat, $dessert);
+      mysqli_stmt_execute($stmt);
+      mysqli_stmt_close($stmt);
+      header("location: ../index.php");
+      exit();
+      }
+  
 
     function emptyInputLogin($login, $pwd){
       $result;
@@ -128,10 +176,7 @@ function emptyInputSignup_responsable($name_respo, $username_respo, $email_respo
         $checkAdmin = true;
       }
 
-      if($checkPwd === false && $checkAdmin === false){
-        header("location: ../PageConnexion.php?error=wrongPassWord");
-        exit();
-      } else if($checkPwd === true || $checkAdmin === true) {
+      if($checkPwd === true || $checkAdmin === true) {
         if($checkAdmin === true){
           session_start();
           $_SESSION["userprenom"] = $emailExist["prenom"];
@@ -148,16 +193,37 @@ function emptyInputSignup_responsable($name_respo, $username_respo, $email_respo
           $_SESSION["useremail"] = $emailExist["email"];
           header("location: ../index.php");
           exit();
-  
+        } 
+
+      } else {
+        header("location: ../PageConnexion.php?error=wrongPassWord");
+        exit();
+      } 
+
+      }
+
+      function DateMenuExist($conn, $date){
+        $sql = "SELECT * FROM date_menu WHERE date = ?";
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            header("location: ../index.php?error=stmtfailed");
+            exit();
         }
 
-      }
-
-      }
-
-
+        mysqli_stmt_bind_param($stmt, "s", $date);
+        mysqli_stmt_execute($stmt);
+    
+        $resultData = mysqli_stmt_get_result($stmt);
+    
+        if($row = mysqli_fetch_assoc($resultData)){
+            return $row;
+        } else {
+            $result = false;
+            return $result;
+        }
+        mysqli_stmt_close($stmt);
+      } 
       function MenuExist($conn, $id){
-        $id = 2;
         $sql = "SELECT * FROM menu WHERE id_menu = ?";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -180,25 +246,53 @@ function emptyInputSignup_responsable($name_respo, $username_respo, $email_respo
       } 
 
 
-      function AjoutMenu($conn, $id){
+      function affichermenu_entree($conn, $id){
         $menuExist = MenuExist($conn, $id);
   
         if($menuExist === false){
           header("location: ../index.php?error=mauvaislogin");
           exit();
         } else {
-          session_start();
-          $_SESSION["menuNom"] = $menuExist["nom"];
-          $_SESSION["menuType"] = $menuExist["type"];
-          $_SESSION["menuImage"] = $menuExist["image"];
-          $_SESSION["menuDescription"] = $menuExist["description"];
+          $_SESSION["EntreeNOM"] = $menuExist["nom"];
+          $_SESSION["EntreeTYPE"] = $menuExist["type"];
+          $_SESSION["EntreeIMG"] = $menuExist["image"];
+          $_SESSION["EntreeDESC"] = $menuExist["description"];
 
-          header("location: ../pagemenu.php");
-          exit();
         }
+      }
+
+        function affichermenu_plat($conn, $id){
+          $menuExist = MenuExist($conn, $id);
+    
+          if($menuExist === false){
+            header("location: ../index.php?error=mauvaislogin");
+            exit();
+          } else {
+            $_SESSION["PlatNOM"] = $menuExist["nom"];
+            $_SESSION["PlatTYPE"] = $menuExist["type"];
+            $_SESSION["PlatIMG"] = $menuExist["image"];
+            $_SESSION["PlatDESC"] = $menuExist["description"];
+  
+
+          }
   
 
         }
+
+        function affichermenu_dessert($conn, $id){
+          $menuExist = MenuExist($conn, $id);
+    
+          if($menuExist === false){
+            header("location: ../index.php?error=mauvaislogin");
+            exit();
+          } else {
+            $_SESSION["DessertNOM"] = $menuExist["nom"];
+            $_SESSION["DessertTYPE"] = $menuExist["type"];
+            $_SESSION["DessertIMG"] = $menuExist["image"];
+            $_SESSION["DessertDESC"] = $menuExist["description"];
+          }
+        }
+        
 
         function emptyInputAddMenu($nom_menu, $type, $image_url, $description_menu){
           $result;
@@ -272,4 +366,35 @@ function emptyInputSignup_responsable($name_respo, $username_respo, $email_respo
         }
 
       }
+
+      function affichermenu($conn, $date){
+        $DateMenuExist = DateMenuExist($conn, $date);
+  
+        if($DateMenuExist === false){
+          header("location: ../index.php?error=dateintrouvable");
+          exit();
+        }
+  
+        $_SESSION["datemenu"] = $date;
+        $identree = $DateMenuExist["menu_entree"];
+        $idplat = $DateMenuExist["menu_plat"];
+        $iddessert = $DateMenuExist["menu_dessert"];
+        affichermenu_plat($conn, $idplat);
+        affichermenu_entree($conn, $identree);
+        affichermenu_dessert($conn, $iddessert);
+        $nom_entree = $_SESSION["EntreNOM"];
+        $img_entree = $_SESSION["EntreeIMG"];
+        $desc_entree = $_SESSION["EntreeDESC"];
+
+        $nom_plat = $_SESSION["PlatNOM"];
+        $img_plat = $_SESSION["PlatIMG"];
+        $desc_plat = $_SESSION["PlatDESC"];
+
+        $nom_dessert = $_SESSION["DessertNOM"];
+        $img_dessert = $_SESSION["DessertIMG"];
+        $desc_dessert = $_SESSION["DessertDESC"];
+        header("location: ../pagemenu.php?img_entree=$img_entree&nom_entree=$nom_entree&desc_entree=$desc_entree&img_plat=$img_plat&nom_plat=$nom_plat&desc_plat=$desc_plat&img_dessert=$img_dessert&nom_dessert=$nom_dessert&desc_dessert=$desc_dessert");
+        exit();
+        
+        }
 ?>

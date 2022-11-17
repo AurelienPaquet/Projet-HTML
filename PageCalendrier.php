@@ -18,18 +18,18 @@ function CalendarControl() {
       prevMonthLastDate: null,
       calWeekDays: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
       calMonthName: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec"
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
       ],
       daysInMonth: function (month, year) {
         return new Date(year, month, 0).getDate();
@@ -141,7 +141,7 @@ function CalendarControl() {
           } else {
             document.querySelector(
               ".calendar .calendar-body"
-            ).innerHTML += `<div class="number-item" data-num=${count}><a class="dateNumber" href=pagemenu.php?jour=${count}&mois=${
+            ).innerHTML += `<div class="number-item" data-num=${count}><a class="dateNumber" href=includes/afficher_menu.inc.php?jour=${count}&mois=${
  calendarControl.calMonthName[calendar.getMonth()]
          }&year=${calendar.getFullYear()} >${count++}</a></div>`;
           }

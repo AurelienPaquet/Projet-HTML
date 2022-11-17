@@ -1,8 +1,8 @@
 <?php
-  $host="localhost";
-  $namebdd="root";
-  $passbdd="root";
-  $dbname="serveur-cantine";
+ $host="localhost";
+ $namebdd="root";
+ $passbdd="root";
+ $dbname="serveur-cantine";
 
   $conn = mysqli_connect($host,$namebdd,$passbdd,$dbname);
 

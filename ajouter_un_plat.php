@@ -11,7 +11,10 @@ if($_SESSION["userrole"] ===  1){
     header("location: index.php?mauvaisepage");
     exit();
 }
-$date = $_GET["year"]."/".$_GET["mois"]."/".$_GET["jour"];
+
+$jour = $_GET["jour"];
+$mois = $_GET["mois"];
+$annee = $_GET["year"];
 ?>
 
 <div class="signin" id="signin" style="height: 900px;">
@@ -21,21 +24,24 @@ $date = $_GET["year"]."/".$_GET["mois"]."/".$_GET["jour"];
     </div>
         <div class="container-fluid titre_date">
         <div class="col-12" id="date">
-            <h1><?php echo $date;?></h1>
+            <h1><?php echo $jour." ".$mois." ".$annee;?></h1>
         </div>
     </div>
     
     <div class="container" id="formulaire">
-      <form action="includes/ajouter_un_plat.inc.php" method="post" > 
-        
+        <form action=includes/ajouter_un_plat.inc.php method="post" > 
+        <input type="hidden" name="jour" value="<?php echo $jour?>"></input>
+        <input type="hidden" name="mois" value="<?php echo $mois?>"></input>
+        <input type="hidden" name="annee" value="<?php echo $annee?>"></input>
+
 
         <div class="col-md-12">
-            <label for='entree-select'>Choississez une entrée : </label>
-                <select name='entree' id='entree-select'>
+            <label for='entree'>Choississez une entrée : </label>
+                <select name='entree' id='entree'>
                     <?php $sql = 'SELECT  id_menu,nom,type, description FROM menu;';
                     $stmt = mysqli_stmt_init($conn);
                     if(!mysqli_stmt_prepare($stmt, $sql)){
-                        header('location: ../index.php?error=stmtfailed');
+                        header('location: ../ajouter_un_plat.php?error=stmtfailed');
                         exit();
                     }
                     $result = $conn->query($sql);
@@ -52,12 +58,12 @@ $date = $_GET["year"]."/".$_GET["mois"]."/".$_GET["jour"];
         </div>
         <div class="col-md-12">
             <div>
-                <label for='plat-select'>Choississez un Plat : </label>
-                <select name='plat' id='plat-select'>
+                <label for='plat'>Choississez un Plat : </label>
+                <select name='plat' id='plat'>
                         <?php $sql = 'SELECT  id_menu,nom,type, description FROM menu;';
                         $stmt = mysqli_stmt_init($conn);
                         if(!mysqli_stmt_prepare($stmt, $sql)){
-                            header('location: ../index.php?error=stmtfailed');
+                            header('location: ../ajouter_un_plat.php?error=stmtfailed');
                             exit();
                         }
                         $result = $conn->query($sql);
@@ -74,12 +80,12 @@ $date = $_GET["year"]."/".$_GET["mois"]."/".$_GET["jour"];
             </div>
         <div class="col-md-12">
             <div>
-                <label for='dessert-select'>Choississez un Dessert : </label>
-                <select name='dessert' id='dessert-select'>
+                <label for='dessert'>Choississez un Dessert : </label>
+                <select name='dessert' id='dessert'>
                         <?php $sql = 'SELECT  id_menu,nom,type, description FROM menu;';
                         $stmt = mysqli_stmt_init($conn);
                         if(!mysqli_stmt_prepare($stmt, $sql)){
-                            header('location: ../index.php?error=stmtfailed');
+                            header('location: ../ajouter_un_plat.php?error=stmtfailed');
                             exit();
                         }
                         $result = $conn->query($sql);
