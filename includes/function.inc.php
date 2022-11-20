@@ -179,6 +179,7 @@ function emptyInputMenu($date, $entree, $plat, $dessert){
       if($checkPwd === true || $checkAdmin === true) {
         if($checkAdmin === true){
           session_start();
+          $_SESSION["userid"] = $emailExist["id"];
           $_SESSION["userprenom"] = $emailExist["prenom"];
           $_SESSION["usernom"] = $emailExist["nom"];
           $_SESSION["userrole"] = $emailExist["role"];
@@ -187,6 +188,7 @@ function emptyInputMenu($date, $entree, $plat, $dessert){
           exit();
         } else {
           session_start();
+          $_SESSION["userid"] = $emailExist["id"];
           $_SESSION["userprenom"] = $emailExist["prenom"];
           $_SESSION["usernom"] = $emailExist["nom"];
           $_SESSION["userrole"] = $emailExist["role"];
@@ -393,8 +395,54 @@ function emptyInputMenu($date, $entree, $plat, $dessert){
         $nom_dessert = $_SESSION["DessertNOM"];
         $img_dessert = $_SESSION["DessertIMG"];
         $desc_dessert = $_SESSION["DessertDESC"];
-        header("location: ../pagemenu.php?img_entree=$img_entree&nom_entree=$nom_entree&desc_entree=$desc_entree&img_plat=$img_plat&nom_plat=$nom_plat&desc_plat=$desc_plat&img_dessert=$img_dessert&nom_dessert=$nom_dessert&desc_dessert=$desc_dessert");
+        header("location: ../pagemenu.php?date=$date&img_entree=$img_entree&nom_entree=$nom_entree&desc_entree=$desc_entree&img_plat=$img_plat&nom_plat=$nom_plat&desc_plat=$desc_plat&img_dessert=$img_dessert&nom_dessert=$nom_dessert&desc_dessert=$desc_dessert");
         exit();
         
         }
+
+        function CommandExist($conn, $id_user){
+          $sql = "SELECT * FROM commande WHERE id_user = ?";
+          $stmt = mysqli_stmt_init($conn);
+          if(!mysqli_stmt_prepare($stmt, $sql)){
+              header("location: ../index.php?error=stmtfailed");
+              exit();
+          }
+  
+          mysqli_stmt_bind_param($stmt, "i", $id_user);
+          mysqli_stmt_execute($stmt);
+      
+          $resultData = mysqli_stmt_get_result($stmt);
+      
+          if($row = mysqli_fetch_assoc($resultData)){
+              return $row;
+          } else {
+              $result = false;
+              return $result;
+          }
+          mysqli_stmt_close($stmt);
+        } 
+
+        function enregistercommande($conn, $date, $id_user){
+          $DateMenuExist = DateMenuExist($conn, $date);
+    
+
+          
+          $identree = $DateMenuExist["menu_entree"];
+          $idplat = $DateMenuExist["menu_plat"];
+          $iddessert = $DateMenuExist["menu_dessert"];
+          $sql = "INSERT INTO commande (id_user, date, entree, plat, dessert) VALUES (?, ?, ?, ?, ?);";
+          $stmt = mysqli_stmt_init($conn);
+          if(!mysqli_stmt_prepare($stmt, $sql)){
+              header("location: ../PageCalendrier.php?error=stmtfailed");
+              exit();
+          }
+      
+          mysqli_stmt_bind_param($stmt, "isiii", $id_user, $date, $identree, $idplat, $iddessert);
+          mysqli_stmt_execute($stmt);
+          mysqli_stmt_close($stmt);
+
+          header("location: ../index.php?error=commandevalide");
+          exit();
+          
+          }
 ?>

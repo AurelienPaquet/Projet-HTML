@@ -23,18 +23,19 @@
 
   <!-- Section Bienvenu -->
         <?php
+
               if(isset($_SESSION["usernom"]) && $_SESSION["userrole"] === 2){
-
                 echo "<h1 style='text-align:center;color:white;font-size:60px;'>Bienvenue M. Responsable</h1>";
-
               } else if (isset($_SESSION["usernom"]) && $_SESSION["userrole"] === 3){
                 echo "<h1 style='text-align:center;color:white;font-size:60px;'>Bienvenue M. Admin</h1>";
-
-              }        
-
+              } else if(isset($_GET["error"])){
+                    if($_GET["error"] == "dateintrouvable"){
+                      echo "<h2 style='text-align:center;color:white;font-size:30px;'>Date Introuvable</h1>";
+                      } else if($_GET["error"] == "commandevalide"){
+                echo "<h2 style='text-align:center;color:white;font-size:30px;'>Commande Validée Veuillez attendre 30min pour la fin de votre commande</h1>";
+                      }  
+            }
         ?>
-
-
   <div>
 
     <section class="home" id="home">

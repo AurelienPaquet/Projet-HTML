@@ -50,18 +50,33 @@
         </div>
     </div>
     <div class="container-fluid menu-dessert">
-    <div class="col-12">
-            <h2>Dessert</h2>
-        </div>
-        <div class="row row-entree">
-        <div class="col-sm-12 row-entree  text-center " id="menu_dessert_1">
-                <h3 class="nom">Menu n°<span>1</span></h3>
-                <h4><span>Nom<br></span><?php echo $_GET['nom_dessert']?></h4>
-                <img src=<?php echo $_GET['img_dessert']?> class="img-fluid rounded" alt="image temporaire">
-                <h4><span>Description</span><br><?php echo $_GET['desc_dessert']?></h4>
+        <div class="col-12">
+                <h2>Dessert</h2>
             </div>
+            <div class="row row-entree">
+            <div class="col-sm-12 row-entree  text-center " id="menu_dessert_1">
+                    <h3 class="nom">Menu n°<span>1</span></h3>
+                    <h4><span>Nom<br></span><?php echo $_GET['nom_dessert']?></h4>
+                    <img src=<?php echo $_GET['img_dessert']?> class="img-fluid rounded" alt="image temporaire">
+                    <h4><span>Description</span><br><?php echo $_GET['desc_dessert']?></h4>
+                </div>
+        </div>
     </div>
-    </div>
+    <?php
+    $date = $_GET["date"];
+    $id = $_SESSION['userid'];
+    if(isset($_SESSION["usernom"]) && $_SESSION["userrole"] === 1){
+        echo "  <form action='includes/commande.php' method='post' > 
+                    <div class='grid text-center' style='--bs-rows: 3; --bs-columns: 3;'>
+                        <div class='d-grid g-start-2 gap-2 d-md-block' style='grid-row: 2; padding: 25px;'><button class='btn btn-outline-primary' type='submit' name='submit' style='padding:15px;color: white'>Commander</button></div>
+                        <input type='hidden' name='date' value='$date'></input>
+                        <input type='hidden' name='test' value='$id'></input>
+
+                    </div>
+                </form>";
+
+    }
+    ?>
 </section>
 
 <?php
