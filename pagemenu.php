@@ -62,15 +62,26 @@
                 </div>
         </div>
     </div>
+    <div class="container-fluid menu-dessert">
+        <div class="col-12">
+            <?php
+                $prixtotal = $_GET['prix_entree'] + $_GET['prix_plat'] + $_GET['prix_dessert'];
+                echo "<h2>$prixtotal</h2>";
+            ?>
+                
+        </div>
+    </div>
     <?php
-    $date = $_GET["date"];
-    $id = $_SESSION['userid'];
+
     if(isset($_SESSION["usernom"]) && $_SESSION["userrole"] === 1){
-        echo "  <form action='includes/commande.php' method='post' > 
+        $date = $_GET["date"];
+        $id = $_SESSION['userid'];
+        echo "  <form action='includes/commande.inc.php' method='post' > 
                     <div class='grid text-center' style='--bs-rows: 3; --bs-columns: 3;'>
                         <div class='d-grid g-start-2 gap-2 d-md-block' style='grid-row: 2; padding: 25px;'><button class='btn btn-outline-primary' type='submit' name='submit' style='padding:15px;color: white'>Commander</button></div>
                         <input type='hidden' name='date' value='$date'></input>
                         <input type='hidden' name='test' value='$id'></input>
+                        <input type='hidden' name='prix' value='$prixtotal'></input>
 
                     </div>
                 </form>";

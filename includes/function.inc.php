@@ -95,6 +95,8 @@ function emptyInputMenu($date, $entree, $plat, $dessert){
     mysqli_stmt_close($stmt);
   } 
 
+  
+
   function dateExist($conn, $date){
     $sql = "SELECT * FROM date_menu WHERE date = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -259,6 +261,7 @@ function emptyInputMenu($date, $entree, $plat, $dessert){
           $_SESSION["EntreeTYPE"] = $menuExist["type"];
           $_SESSION["EntreeIMG"] = $menuExist["image"];
           $_SESSION["EntreeDESC"] = $menuExist["description"];
+          $_SESSION["EntreePRIX"] = $menuExist["prix"];
 
         }
       }
@@ -274,7 +277,8 @@ function emptyInputMenu($date, $entree, $plat, $dessert){
             $_SESSION["PlatTYPE"] = $menuExist["type"];
             $_SESSION["PlatIMG"] = $menuExist["image"];
             $_SESSION["PlatDESC"] = $menuExist["description"];
-  
+            $_SESSION["PlatPRIX"] = $menuExist["prix"];
+
 
           }
   
@@ -292,6 +296,8 @@ function emptyInputMenu($date, $entree, $plat, $dessert){
             $_SESSION["DessertTYPE"] = $menuExist["type"];
             $_SESSION["DessertIMG"] = $menuExist["image"];
             $_SESSION["DessertDESC"] = $menuExist["description"];
+            $_SESSION["DessertPRIX"] = $menuExist["prix"];
+
           }
         }
         
@@ -387,15 +393,20 @@ function emptyInputMenu($date, $entree, $plat, $dessert){
         $nom_entree = $_SESSION["EntreNOM"];
         $img_entree = $_SESSION["EntreeIMG"];
         $desc_entree = $_SESSION["EntreeDESC"];
+        $prix_entree = $_SESSION["EntreePRIX"];
+
 
         $nom_plat = $_SESSION["PlatNOM"];
         $img_plat = $_SESSION["PlatIMG"];
         $desc_plat = $_SESSION["PlatDESC"];
+        $prix_plat = $_SESSION["PlatPRIX"];
+
 
         $nom_dessert = $_SESSION["DessertNOM"];
         $img_dessert = $_SESSION["DessertIMG"];
         $desc_dessert = $_SESSION["DessertDESC"];
-        header("location: ../pagemenu.php?date=$date&img_entree=$img_entree&nom_entree=$nom_entree&desc_entree=$desc_entree&img_plat=$img_plat&nom_plat=$nom_plat&desc_plat=$desc_plat&img_dessert=$img_dessert&nom_dessert=$nom_dessert&desc_dessert=$desc_dessert");
+        $prix_dessert = $_SESSION["DessertPRIX"];
+        header("location: ../pagemenu.php?prix_entree=$prix_entree&prix_plat=$prix_plat&prix_dessert=$prix_dessert&date=$date&img_entree=$img_entree&nom_entree=$nom_entree&desc_entree=$desc_entree&img_plat=$img_plat&nom_plat=$nom_plat&desc_plat=$desc_plat&img_dessert=$img_dessert&nom_dessert=$nom_dessert&desc_dessert=$desc_dessert");
         exit();
         
         }
@@ -422,7 +433,7 @@ function emptyInputMenu($date, $entree, $plat, $dessert){
           mysqli_stmt_close($stmt);
         } 
 
-        function enregistercommande($conn, $date, $id_user){
+        function enregistercommande($conn, $date, $id_user, $prix, $etat){
           $DateMenuExist = DateMenuExist($conn, $date);
     
 
@@ -430,14 +441,15 @@ function emptyInputMenu($date, $entree, $plat, $dessert){
           $identree = $DateMenuExist["menu_entree"];
           $idplat = $DateMenuExist["menu_plat"];
           $iddessert = $DateMenuExist["menu_dessert"];
-          $sql = "INSERT INTO commande (id_user, date, entree, plat, dessert) VALUES (?, ?, ?, ?, ?);";
+          
+          $sql = "INSERT INTO commande (id_user, date, entree, plat, dessert, prix, etat) VALUES (?, ?, ?, ?, ?, ?, ?);";
           $stmt = mysqli_stmt_init($conn);
           if(!mysqli_stmt_prepare($stmt, $sql)){
               header("location: ../PageCalendrier.php?error=stmtfailed");
               exit();
           }
       
-          mysqli_stmt_bind_param($stmt, "isiii", $id_user, $date, $identree, $idplat, $iddessert);
+          mysqli_stmt_bind_param($stmt, "isiiisi", $id_user, $date, $identree, $idplat, $iddessert, $prix, $etat);
           mysqli_stmt_execute($stmt);
           mysqli_stmt_close($stmt);
 
@@ -445,4 +457,38 @@ function emptyInputMenu($date, $entree, $plat, $dessert){
           exit();
           
           }
+
+          function DeleteUser($conn, $useremail){
+      
+            $sql = "DELETE FROM `user` WHERE email = ?";
+            $stmt = mysqli_stmt_init($conn);
+            if(!mysqli_stmt_prepare($stmt, $sql)){
+                header("location: ../index.php?error=stmtfailed");
+                exit();
+            }
+        
+            mysqli_stmt_bind_param($stmt, "s", $useremail);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+                
+            header("location: logout.inc.php?error=supprimer");
+            exit();
+            }
+
+            function ModifUser($conn, $name, $username, $email, $ancienneemail){
+              
+              $sql = "UPDATE user set nom = ?, prenom = ?, email = ? WHERE email = ?";
+              $stmt = mysqli_stmt_init($conn);
+              if(!mysqli_stmt_prepare($stmt, $sql)){
+                  header("location: ../PageModifier.php?error=stmtfailed");
+                  exit();
+              }
+          
+          
+              mysqli_stmt_bind_param($stmt, "ssss", $name, $username, $email, $ancienneemail);
+              mysqli_stmt_execute($stmt);
+              mysqli_stmt_close($stmt);
+              header("location: ../profile.php?error=none");
+              exit();
+              }
 ?>

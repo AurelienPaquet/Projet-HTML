@@ -1,6 +1,6 @@
 <?php
 
-  $titre = "Inscription";
+  $titre = "Connexion";
   include 'head.php';
   include 'header.php';
 

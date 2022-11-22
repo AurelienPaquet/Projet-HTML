@@ -33,9 +33,12 @@
                       echo "<h2 style='text-align:center;color:white;font-size:30px;'>Date Introuvable</h1>";
                       } else if($_GET["error"] == "commandevalide"){
                 echo "<h2 style='text-align:center;color:white;font-size:30px;'>Commande Validée Veuillez attendre 30min pour la fin de votre commande</h1>";
+                      }  else if($_GET["error"] == "Comptesupprime"){
+                        echo "<h2 style='text-align:center;color:white;font-size:30px;'>Compte bien supprimé</h1>";
                       }  
             }
         ?>
+        
   <div>
 
     <section class="home" id="home">
