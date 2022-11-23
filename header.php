@@ -6,7 +6,7 @@
 
     <nav>
       <div style="padding: 0 40px">
-      <a href="function.php" target="_blank" rel="noopener noreferrer"><img src="image/logo_esigelec.png" href="https://www.w3schools.com/default.asp" alt="Logo de l'Esigelec" id="logo"></a>
+      <a href="function.php" target="_blank" rel="noopener noreferrer"><img src="image/logo_esigelec.png" alt="Logo de l'Esigelec" id="logo"></a>
       </div>
 
 

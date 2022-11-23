@@ -3,6 +3,9 @@ identifiant : grp_8_4
 mdp : NlQ2Bm19NoSG
 bdd : bdd_8_4
 
+url : https://moduleweb.esigelec.fr/grp_8_4/
+bdd : https://moduleweb.esigelec.fr/phpmyadmin/db_export.php?db=bdd_8_4&token=a9e625a6968c2a9436991a17a2db431a
+
 Sur le site :
 - Admin : 
 id : admin
