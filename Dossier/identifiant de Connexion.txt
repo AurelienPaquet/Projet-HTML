@@ -1,0 +1,22 @@
+groupe : 4
+identifiant : grp_8_4
+mdp : NlQ2Bm19NoSG
+bdd : bdd_8_4
+
+Sur le site :
+- Admin : 
+id : admin
+mdp : admin
+
+- Responsable :
+id : aurelienpaquet@gmail.com
+mdp : azeqsd
+
+utilisateur : 
+1er compte
+id : Claire@gmail.com
+mdp : 123
+
+2eme compte
+id : anthonin@gmail.com
+mdp : azeqsd

@@ -15,8 +15,10 @@
 ?>
 
 <?php
-$useremail = $_SESSION['useremail'];
  if($_SESSION["userrole"] === 1){
+    $iduser=$_SESSION['userid'];
+    $useremail = $_SESSION['useremail'];
+
     echo "<section class='profile'>
     
         <div class='row' style='background-color: black; width: 100%; height: 700px;'>
@@ -36,7 +38,7 @@ $useremail = $_SESSION['useremail'];
             <ul style='display:block; width: 100%;margin: 0 auto;'>
 
                 <li style='text-align: center; list-style: none;padding:10px;'>
-                    <a href='historique.php' style='font-family: Fatface;font-size: 30px;
+                    <a href='historique.php?id=$iduser' style='font-family: Fatface;font-size: 30px;
                     color: white;
                     text-decoration: none;
                     text-transform: uppercase;'>Historique de Commande</a>
@@ -63,7 +65,9 @@ $useremail = $_SESSION['useremail'];
         </div>
     </section>";
 } else if($_SESSION['userrole'] === 2){
-    echo "<section class='profile'>
+    $useremail = $_SESSION['useremail'];
+
+    echo "<section class='profile' style='height:700px;background-color:black'>
         <div class='row' style='background-color: black; width: 100%; height: 500px;'>
             <div class='col-12'>
                 <h1 style='color:white;text-align: center;padding: 10px'>NOM : " . $_SESSION['usernom'] . "
@@ -78,11 +82,34 @@ $useremail = $_SESSION['useremail'];
             <div class='col-12'>
                 <h1 style='color:white;text-align: center;padding: 10px'>RESPONSABLE</h1>
             </div>
+            <ul style='display:block; width: 100%;margin: 0 auto;'>
+                <li style='text-align: center; list-style: none;padding:30px;'>
+                    <a href='ajout_menu.php' style='font-family: Fatface;font-size: 30px;
+                    color: white;
+                    text-decoration: none;
+                    text-transform: uppercase;'>Ajouter menu</a>
+                </li>
+                <li style='text-align: center; list-style: none;padding:30px;'>
+                    <a href='PageCalendrier_respo.php' style='font-family: Fatface;font-size: 30px;
+                    color: white;
+                    text-decoration: none;
+                    text-transform: uppercase;'>Ajouter menu du jour</a>
+                </li>
+                <li style='text-align: center; list-style: none;padding:30px;'>
+                    <a href='historique_admin.php' style='font-family: Fatface;font-size: 30px;
+                    color: white;
+                    text-decoration: none;
+                    text-transform: uppercase;'>Historique des Commandes</a>
+                </li>
+          </ul>
         </div>
     </section>";
     //ajout de plat
 } else  if($_SESSION["userrole"] === 3){
- 
+    if(isset($_SESSION["error"]) && $_SESSION["error"] === commandeValidee){
+        echo "<h1 style='text-align:center;color:white;font-size:60px;'>Commande Validée</h1>";
+      }
+
     echo "<section class='profile'>
     <div class='row' style='background-color: black; width: 100%; height: 500px;'>
         <div class='col-12'>
@@ -105,6 +132,12 @@ $useremail = $_SESSION['useremail'];
                     color: white;
                     text-decoration: none;
                     text-transform: uppercase;'>Ajouter menu du jour</a>
+                </li>
+                <li style='text-align: center; list-style: none;padding:30px;'>
+                    <a href='historique_admin.php' style='font-family: Fatface;font-size: 30px;
+                    color: white;
+                    text-decoration: none;
+                    text-transform: uppercase;'>Historique des Commandes</a>
                 </li>
           </ul>
         </div>

@@ -11,12 +11,17 @@ if(isset($_POST["submit"])){
 
     require_once 'ConnexionBDD.php';
     require_once 'function.inc.php';
-    if(CommandExist($conn, $id_user) !== false){
-        header("location: ../PageCalendrier.php?error=Commandedejaencour");
-        exit();
-    }
+
+
     enregistercommande($conn, $date, $id_user, $prix, $etat);
 
 
-} 
+} else if(isset($_POST["supprimer"])){
+    require_once 'ConnexionBDD.php';
+    require_once 'function.inc.php';
+
+    $iduser = $_POST["id"];
+    ValiderCommand($conn, $iduser);
+
+}
 ?>

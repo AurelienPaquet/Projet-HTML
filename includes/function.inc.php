@@ -491,4 +491,20 @@ function emptyInputMenu($date, $entree, $plat, $dessert){
               header("location: ../profile.php?error=none");
               exit();
               }
+              function ValiderCommand($conn, $iduser){
+              
+                $sql = "UPDATE commande set etat = 2 WHERE id_commande = ?";
+                $stmt = mysqli_stmt_init($conn);
+                if(!mysqli_stmt_prepare($stmt, $sql)){
+                    header("location: ../profile.php?error=stmtfailed");
+                    exit();
+                }
+            
+            
+                mysqli_stmt_bind_param($stmt, "i", $iduser);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
+                header("location: ../historique_admin.php?error=commandeValidee");
+                exit();
+                }
 ?>
